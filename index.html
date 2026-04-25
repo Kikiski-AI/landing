@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kikiski.ai — The Vision</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg: #faf8f4;
+  --ink: #0e0d0b;
+  --teal: #007a5c;
+  --teal-light: #e8f5f0;
+  --teal-mid: #005a42;
+  --teal-bright: #00c896;
+  --rule: #e0dbd0;
+  --muted: #7a7060;
+  --amber: #b87020;
+  --surface: #f0ede6;
+  --dark: #0e0d0b;
+  --dark2: #1a1f1c;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  font-family: 'Instrument Sans', sans-serif;
+  color: var(--ink);
+  line-height: 1.7;
+}
+
+/* ── COVER ── */
+.cover {
+  min-height: 100vh;
+  background: var(--dark);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cover-bg-circle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.cover-bg-circle.c1 {
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(0,200,150,0.12) 0%, transparent 70%);
+  top: -200px; right: -100px;
+}
+
+.cover-bg-circle.c2 {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(0,200,150,0.06) 0%, transparent 70%);
+  bottom: -100px; left: -100px;
+}
+
+.cover-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.kikiski-logo {
+  font-family: 'Fraunces', serif;
+  font-size: 52px;
+  font-weight: 900;
+  color: white;
+  letter-spacing: -2px;
+  line-height: 1;
+}
+
+.kikiski-tld {
+  color: var(--teal-bright);
+}
+
+.cover-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #4a6060;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-align: right;
+  line-height: 1.8;
+}
+
+.cover-middle {
+  max-width: 720px;
+}
+
+.cover-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--teal-bright);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 24px;
+}
+
+.cover-headline {
+  font-family: 'Fraunces', serif;
+  font-size: 58px;
+  font-weight: 700;
+  color: white;
+  line-height: 1.1;
+  letter-spacing: -2px;
+  margin-bottom: 24px;
+}
+
+.cover-headline em {
+  color: var(--teal-bright);
+  font-style: italic;
+}
+
+.cover-sub {
+  font-size: 17px;
+  color: #8a9a94;
+  line-height: 1.7;
+  max-width: 560px;
+}
+
+.cover-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cover-to {
+  font-size: 13px;
+  color: #4a6060;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.cover-to span {
+  color: #8a9a94;
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+}
+
+.cover-scroll {
+  font-size: 12px;
+  color: #4a6060;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.scroll-arrow {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #2a4040;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: var(--teal-bright);
+}
+
+/* ── BODY ── */
+.doc {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 80px 60px 120px;
+}
+
+/* Section */
+.section {
+  margin-bottom: 72px;
+  position: relative;
+}
+
+.section-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--teal);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-num::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.15;
+  letter-spacing: -1px;
+  margin-bottom: 24px;
+}
+
+.section-title em {
+  color: var(--teal);
+  font-style: italic;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #2a2820;
+  margin-bottom: 18px;
+}
+
+p:last-child { margin-bottom: 0; }
+
+strong { font-weight: 600; color: var(--ink); }
+
+/* Pull quote */
+.pq {
+  margin: 32px 0;
+  padding: 24px 32px;
+  border-left: 4px solid var(--teal-bright);
+  background: var(--teal-light);
+  border-radius: 0 12px 12px 0;
+}
+
+.pq p {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--teal-mid);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Dark callout */
+.dark-box {
+  background: var(--dark);
+  border-radius: 16px;
+  padding: 36px 40px;
+  margin: 32px 0;
+}
+
+.dark-box p {
+  color: #8a9a94;
+  margin-bottom: 12px;
+}
+
+.dark-box p:last-child { margin-bottom: 0; }
+
+.dark-box strong { color: var(--teal-bright); }
+
+.dark-box .big-num {
+  font-family: 'Fraunces', serif;
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--teal-bright);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.dark-box .big-label {
+  font-size: 13px;
+  color: #4a6060;
+  font-family: 'JetBrains Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 32px 0;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 24px 16px;
+  background: var(--surface);
+  border-radius: 12px;
+  border: 1px solid var(--rule);
+}
+
+.stat-num {
+  font-family: 'Fraunces', serif;
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--teal);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: var(--muted);
+  font-family: 'JetBrains Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.4;
+}
+
+/* How it works steps */
+.steps {
+  margin: 32px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.step {
+  display: flex;
+  gap: 24px;
+  position: relative;
+  padding-bottom: 32px;
+}
+
+.step:last-child { padding-bottom: 0; }
+
+.step:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 19px;
+  top: 42px;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--teal-bright), transparent);
+}
+
+.step-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Fraunces', serif;
+  font-size: 16px;
+  font-weight: 900;
+  color: white;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.step-content { flex: 1; padding-top: 8px; }
+
+.step-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.step-body {
+  font-size: 14.5px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* Verticals grid */
+.verticals {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 32px 0;
+}
+
+.vertical-card {
+  padding: 22px 24px;
+  border-radius: 12px;
+  border: 1px solid var(--rule);
+  position: relative;
+  overflow: hidden;
+  background: white;
+}
+
+.vertical-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+
+.vertical-card.v1::before { background: var(--teal-bright); }
+.vertical-card.v2::before { background: #f0a030; }
+.vertical-card.v3::before { background: #8060c0; }
+.vertical-card.v4::before { background: #4080c0; }
+.vertical-card.v5::before { background: #c04060; }
+.vertical-card.v6::before { background: #20a080; }
+
+.vertical-phase {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.v1 .vertical-phase { color: var(--teal); }
+.v2 .vertical-phase { color: #f0a030; }
+.v3 .vertical-phase { color: #8060c0; }
+.v4 .vertical-phase { color: #4080c0; }
+.v5 .vertical-phase { color: #c04060; }
+.v6 .vertical-phase { color: #20a080; }
+
+.vertical-title {
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.vertical-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Expansion timeline */
+.expansion {
+  margin: 32px 0;
+  position: relative;
+}
+
+.exp-row {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+  align-items: start;
+}
+
+.exp-year {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--teal);
+  line-height: 1;
+  padding-top: 4px;
+}
+
+.exp-content {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: 16px 20px;
+}
+
+.exp-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.exp-body {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Future vision */
+.vision-dark {
+  background: var(--dark2);
+  border-radius: 20px;
+  padding: 48px;
+  margin: 32px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.vision-dark::before {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(0,200,150,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.vision-dark h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: white;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
+.vision-dark h3 em {
+  color: var(--teal-bright);
+  font-style: italic;
+}
+
+.vision-dark p {
+  color: #7a9090;
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.vision-dark p strong {
+  color: #b0c8c0;
+}
+
+/* Ask section */
+.ask-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 32px 0;
+}
+
+.ask-card {
+  background: var(--dark);
+  border-radius: 12px;
+  padding: 24px 20px;
+  border: 1px solid #1e2e2a;
+}
+
+.ask-name {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 4px;
+}
+
+.ask-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--teal-bright);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+}
+
+.ask-line {
+  width: 24px;
+  height: 2px;
+  background: var(--teal-bright);
+  margin-bottom: 14px;
+}
+
+.ask-body {
+  font-size: 13px;
+  color: #6a8a80;
+  line-height: 1.7;
+}
+
+/* Closing */
+.closing {
+  text-align: center;
+  padding: 60px 0 0;
+  border-top: 1px solid var(--rule);
+  margin-top: 72px;
+}
+
+.closing-logo {
+  font-family: 'Fraunces', serif;
+  font-size: 72px;
+  font-weight: 900;
+  color: var(--ink);
+  letter-spacing: -3px;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.closing-logo span { color: var(--teal); }
+
+.closing-domain {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  color: var(--teal);
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+}
+
+.closing-line {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 40px;
+}
+
+.closing-from {
+  font-size: 13px;
+  color: var(--muted);
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 700px) {
+  .cover { padding: 36px 24px; }
+  .cover-headline { font-size: 36px; }
+  .doc { padding: 48px 24px 80px; }
+  .section-title { font-size: 28px; }
+  .stats-row { grid-template-columns: 1fr; }
+  .verticals { grid-template-columns: 1fr; }
+  .ask-cards { grid-template-columns: 1fr; }
+  .vision-dark { padding: 28px 24px; }
+  .vision-dark h3 { font-size: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-bg-circle c1"></div>
+  <div class="cover-bg-circle c2"></div>
+
+  <div class="cover-top">
+    <div class="kikiski-logo">kikiski<span class="kikiski-tld">.ai</span></div>
+    <div class="cover-label">
+      Founders Document<br>
+      Confidential — 2025<br>
+      Not for distribution
+    </div>
+  </div>
+
+  <div class="cover-middle">
+    <div class="cover-eyebrow">The Vision</div>
+    <div class="cover-headline">
+      The market is broken.<br>
+      <em>We are the fix.</em>
+    </div>
+    <div class="cover-sub">
+      Every day, 150,000 food businesses across Nigeria waste hours, lose money, and make blind decisions because procurement has never been solved. This is what we're building Kikiski to change — permanently.
+    </div>
+  </div>
+
+  <div class="cover-bottom">
+    <div class="cover-to">
+      For: Mosun Lawoyin · Esther · Radi
+      <span>From Luther Lawoyin — Co-Founder & CSO</span>
+    </div>
+    <div class="cover-scroll">
+      Read this <div class="scroll-arrow">↓</div>
+    </div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="doc">
+
+  <!-- 01 THE PROBLEM -->
+  <div class="section">
+    <div class="section-num">01 — The Problem</div>
+    <div class="section-title">Every Monday morning.<br><em>The same chaos.</em></div>
+
+    <p>A restaurant owner in Lagos wakes up knowing she needs to stock her kitchen for the week. She picks up her phone and starts calling. Supplier A for tomatoes. Supplier B for chicken. Supplier C for pepper. Supplier D for eggs. Each call takes ten minutes. Half don't pick up. She leaves voice notes. She waits. She texts. She compares prices on a mental notepad. She places orders individually, gets different answers from everyone, and three days later half the deliveries arrive short or wrong with no explanation.</p>
+
+    <p>She does this <strong>every single week.</strong> So does the chef at Eko Hotel. So does the caterer in Ikeja running 15 events a month. So does the small canteen owner in Surulere feeding 200 workers daily. The problem does not discriminate by size. It is universal.</p>
+
+    <div class="stats-row">
+      <div class="stat-item">
+        <div class="stat-num">3hrs</div>
+        <div class="stat-label">Wasted weekly per operator on procurement calls</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">150K+</div>
+        <div class="stat-label">HORECA businesses in Nigeria with this exact problem</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">30–35%</div>
+        <div class="stat-label">Of restaurant revenue spent on food procurement</div>
+      </div>
+    </div>
+
+    <p>The only Nigerian startup that tried to fix this — Vendease, backed by Y Combinator and Partech Africa with $33 million raised — just collapsed. Not because the problem isn't real. Because they built the wrong solution. They owned inventory, extended credit in naira, and burned through capital trying to be a supplier rather than a marketplace.</p>
+
+    <div class="pq">
+      <p>The problem is validated. The market is open. The timing has never been better. And we have something nobody else has ever had — Pricepally's six years of supply chain infrastructure sitting behind us from day one.</p>
+    </div>
+  </div>
+
+  <!-- 02 THE SOLUTION -->
+  <div class="section">
+    <div class="section-num">02 — The Solution</div>
+    <div class="section-title">Kikiski.<br><em>Your market, in your phone.</em></div>
+
+    <p>Kikiski is a WhatsApp-native AI marketplace. It does in 3 minutes what a restaurant owner currently spends 3 hours doing. It connects food businesses to every supplier they use — through a single conversation on the app they already have open all day.</p>
+
+    <p>No app to download. No portal to log into. No system to learn. Just WhatsApp — and an intelligence layer that makes every procurement decision smarter. Suppliers keep their existing relationships with restaurants. Restaurants keep paying suppliers directly. Kikiski sits in the middle as the intelligence — not the transaction.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-icon">1</div>
+        <div class="step-content">
+          <div class="step-title">Restaurant sends their list</div>
+          <div class="step-body">Voice note, photo of a handwritten list, or typed message — in English, pidgin, Yoruba, whatever is natural. Kikiski's AI parses everything and structures it into a clean order list. No format required. The restaurant also specifies when they need delivery — Kikiski only contacts suppliers who can actually meet that window.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-icon">2</div>
+        <div class="step-content">
+          <div class="step-title">Kikiski broadcasts to all their suppliers simultaneously</div>
+          <div class="step-body">Every supplier the restaurant uses receives a structured quote request on WhatsApp — on their own schedule. Suppliers respond with prices in any format. Kikiski's AI reads all of it. Suppliers who can't meet the delivery window are not included. No false promises.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-icon">3</div>
+        <div class="step-content">
+          <div class="step-title">AI builds the comparison and recommendation</div>
+          <div class="step-body">Not just cheapest — best value. The AI factors in price, reliability score, and delivery window for each supplier. Pricepally appears in the comparison as a preferred, verified option — competing on merit alongside every other supplier. The restaurant decides.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-icon">4</div>
+        <div class="step-content">
+          <div class="step-title">One reply confirms everything</div>
+          <div class="step-body">Restaurant confirms with a single message. Kikiski sends confirmed orders to every winning supplier automatically. After the delivery window passes, Kikiski sends one follow-up: "Did your order arrive okay?" That single response builds the supplier's reliability score. No ops team. No tracking. No physical involvement from Kikiski at all.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-icon">5</div>
+        <div class="step-content">
+          <div class="step-title">Restaurant pays supplier. Supplier pays Kikiski.</div>
+          <div class="step-body">Payment between restaurant and supplier stays exactly as it is today — direct, on their existing terms. Kikiski invoices suppliers a monthly platform fee for access to demand. Kikiski never touches the order money. Clean, simple, zero financial exposure.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dark-box">
+      <p>Kikiski is <strong>pure software.</strong> We own the intelligence — the matching, the comparison, the scoring, the recommendation. Everything physical stays with the parties already equipped to handle it. No warehouses. No drivers. No dispute officers. No quality inspectors. <strong>The complexity is invisible. The intelligence does the work.</strong></p>
+      <p style="margin-top:12px">This works identically for a mama-put owner in Mushin ordering ₦40,000 of groceries and for the F&B director at <strong>Eko Hotel</strong> managing ₦15 million in weekly procurement. One product. Every food business in Africa.</p>
+    </div>
+  </div>
+
+  <!-- 03 HOW WE BUILD IT -->
+  <div class="section">
+    <div class="section-num">03 — How We Build It</div>
+    <div class="section-title">We already know<br><em>it works.</em></div>
+
+    <p>We are not starting from zero. Pricepally's B2B team already manages WhatsApp-based procurement for hundreds of restaurant accounts every single day. Our FMCG arm has people physically in the markets sourcing produce in real time. Our B2B officers already coordinate supply between restaurants and suppliers on WhatsApp. The behaviour Kikiski automates is not a hypothesis — it is something we have been doing manually at scale inside Pricepally for years.</p>
+
+    <p>The validation already exists. What we are building is the product that makes what Pricepally's B2B team does available to every food business in Africa — not just our own customers, and not dependent on human effort to run.</p>
+
+    <div class="pq">
+      <p>We are not testing whether this works. We are productising something we know works and opening it to the market.</p>
+    </div>
+
+    <p><strong>The architecture is three components.</strong> A WhatsApp integration layer that talks to restaurants and suppliers in natural language — parsing voice notes, photos, and typed lists in any format or language. An AI engine that structures the data, builds quote comparisons, and generates recommendations based on price, reliability, and delivery schedule. And a supplier scoring system built entirely from crowdsourced restaurant feedback — one YES/NO response per delivery, aggregated over time into a trust score that gets smarter with every order.</p>
+
+    <p><strong>Kikiski owns nothing physical.</strong> No warehouses. No drivers. No quality inspectors. No dispute officers. Delivery happens between supplier and restaurant on their own terms and schedules. Payment flows directly between them. Kikiski provides the intelligence layer before the order and a single feedback signal after. That is the entire operational surface of this company — and it is entirely software.</p>
+
+    <p>We use the Claude and OpenAI APIs for the intelligence layer — AI that reads a voice note in Yoruba and extracts a structured price list from a blurry photo of a market board. We use the WhatsApp Business API for the communication layer. We use Pricepally's six years of supplier relationships, order history, and market pricing data as the foundation that gives us a head start no competitor starting from zero can replicate.</p>
+
+    <p><strong>Radi builds the MVP in 10–12 weeks.</strong> Not because it is simple — because it is focused. The first version does one thing exceptionally well: turn a restaurant's shopping list into a competitive quote comparison and confirmed order, entirely on WhatsApp. Everything else — analytics, forecasting, multi-category expansion, data products — layers on top once the core loop is proven in production.</p>
+  </div>
+
+  <!-- 04 VERTICALS -->
+  <div class="section">
+    <div class="section-num">04 — Verticals</div>
+    <div class="section-title">We start with food.<br><em>We don't stop there.</em></div>
+
+    <p>Fresh food is our entry point because it's the highest frequency, highest urgency, and where our Pricepally advantage is deepest. But every category below has the same problem — fragmented suppliers, no price transparency, manual ordering, zero accountability. Kikiski solves all of them with the same product.</p>
+
+    <div class="verticals">
+      <div class="vertical-card v1">
+        <div class="vertical-phase">Launch — Now</div>
+        <div class="vertical-title">🥬 Fresh Food & Produce</div>
+        <div class="vertical-desc">Tomatoes, pepper, chicken, fish, eggs, vegetables. Daily urgency, highest frequency, deepest supplier relationships. Pricepally competes as a preferred verified supplier — giving Kikiski instant credibility on the supply side from day one.</div>
+      </div>
+      <div class="vertical-card v2">
+        <div class="vertical-phase">Year 1 — Phase 2</div>
+        <div class="vertical-title">🥤 Drinks & Beverages</div>
+        <div class="vertical-desc">Water, soft drinks, juices, beer, wine for hotels and events. Same restaurants, same suppliers, massive additional GMV. Hotels spend as much on drinks as on food.</div>
+      </div>
+      <div class="vertical-card v3">
+        <div class="vertical-phase">Year 2</div>
+        <div class="vertical-title">🛒 FMCG & Dry Goods</div>
+        <div class="vertical-desc">Flour, oil, rice, seasoning, cleaning supplies, packaging. Every restaurant buys these weekly. The supplier landscape is even more fragmented than fresh food.</div>
+      </div>
+      <div class="vertical-card v4">
+        <div class="vertical-phase">Year 2</div>
+        <div class="vertical-title">🏨 Non-Food HORECA</div>
+        <div class="vertical-desc">Uniforms, linen, toiletries, kitchen equipment, disposables. Hotels and large caterers spend millions on these annually — all procured manually today.</div>
+      </div>
+      <div class="vertical-card v5">
+        <div class="vertical-phase">Year 3</div>
+        <div class="vertical-title">🏢 Corporate & Institutional</div>
+        <div class="vertical-desc">Office canteens, hospital food service, school feeding programs, oil company camps. Enormous order volumes, procurement budgets, and desperate need for structure.</div>
+      </div>
+      <div class="vertical-card v6">
+        <div class="vertical-phase">Year 3+</div>
+        <div class="vertical-title">🌍 All B2B Commerce</div>
+        <div class="vertical-desc">Any business that buys from multiple suppliers — pharmacies, salons, retailers, manufacturers. Kikiski becomes the procurement OS for Nigerian business.</div>
+      </div>
+    </div>
+
+    <p>The compounding effect is enormous. A restaurant that starts using Kikiski for fresh food in month one is using it for drinks by month six and dry goods by month twelve — without us doing any additional sales work. The platform expands the relationship. The restaurant never wants to go back.</p>
+  </div>
+
+  <!-- 04B HOW KIKISKI MAKES MONEY -->
+  <div class="section">
+    <div class="section-num">04b — How We Make Money</div>
+    <div class="section-title">Suppliers pay.<br><em>Restaurants benefit.</em></div>
+
+    <p>The monetisation model is clean and deliberately simple. Restaurants use Kikiski free — because getting them on the platform in volume is everything. Suppliers pay because Kikiski delivers something they cannot generate themselves: structured demand from hundreds of food businesses actively looking for their products every week.</p>
+
+    <div class="dark-box">
+      <p><strong>Monthly supplier subscription</strong> — suppliers pay a flat monthly fee to be listed on the platform and receive quote requests in their category and delivery area. Not tied to any specific order. Not a commission per transaction. A membership fee for access to demand. ₦10,000–60,000 per month depending on tier. Non-payment means no quote requests. The incentive to pay is immediate and obvious.</p>
+      <p style="margin-top:12px"><strong>Why not a take rate on every order?</strong> Because restaurants have existing direct relationships with most suppliers. A per-order commission creates the incentive for suppliers to take conversations off-platform. A subscription fee charges for platform access — whether the order completes on-platform or not. As Kikiski's features become indispensable, on-platform ordering becomes the natural default anyway.</p>
+      <p style="margin-top:12px"><strong>Restaurant SaaS — Month 6 onwards.</strong> Premium features for operators who want more — spend analytics, price trend alerts, multi-location management, demand forecasting. ₦15,000–50,000 per month. Optional, but once a restaurant is using it they never leave.</p>
+      <p style="margin-top:12px"><strong>Data intelligence — Year 2 onwards.</strong> Every transaction builds the most accurate real-time food price dataset in Nigeria. Banks, FMCG companies, government institutions, and development organisations pay for access to this intelligence. Pure margin. No additional operational cost.</p>
+    </div>
+
+    <p>We never touch the money that flows between restaurants and suppliers. We never extend credit. We never hold inventory. We never own a delivery. The entire financial exposure of Kikiski is collecting its own subscription fee — and that is by design.</p>
+  </div>
+
+  
+  <div class="section">
+    <div class="section-num">05 — Expansion</div>
+    <div class="section-title">Lagos first.<br><em>Then the continent.</em></div>
+
+    <p>We are not a Lagos company with ambitions. We are an African company starting in Lagos because Lagos is the largest, most complex food market on the continent — and if Kikiski works here, it works everywhere.</p>
+
+    <div class="expansion">
+      <div class="exp-row">
+        <div class="exp-year">Y1</div>
+        <div class="exp-content">
+          <div class="exp-title">Lagos — Prove the model</div>
+          <div class="exp-body">300+ restaurants, 500+ suppliers, ₦500M+ monthly GMV. Lekki, VI, Ikoyi, Surulere, Ikeja. Every neighbourhood, every size operator — from the suya spot to Eko Hotel. The full proof of concept.</div>
+        </div>
+      </div>
+      <div class="exp-row">
+        <div class="exp-year">Y1</div>
+        <div class="exp-content">
+          <div class="exp-title">Abuja & Port Harcourt — Scale the playbook</div>
+          <div class="exp-body">Pricepally already operates in both cities with established supplier networks and B2B customer relationships. We replicate Lagos in 60 days per city — not six months — because the infrastructure is already there.</div>
+        </div>
+      </div>
+      <div class="exp-row">
+        <div class="exp-year">Y2</div>
+        <div class="exp-content">
+          <div class="exp-title">Accra & Nairobi — West and East Africa simultaneously</div>
+          <div class="exp-body">Same WhatsApp infrastructure. Same AI model retrained on local produce names and language. No rebuilding required. Two cities, two new markets, one product. The HORECA procurement problem is identical across every African city.</div>
+        </div>
+      </div>
+      <div class="exp-row">
+        <div class="exp-year">Y3</div>
+        <div class="exp-content">
+          <div class="exp-title">Francophone Africa — Dakar, Abidjan, Douala</div>
+          <div class="exp-body">WhatsApp is dominant across Francophone Africa. Our AI speaks French natively. The problem is identical. The market is completely untouched by any serious player.</div>
+        </div>
+      </div>
+      <div class="exp-row">
+        <div class="exp-year">Y5</div>
+        <div class="exp-content">
+          <div class="exp-title">20 African cities — The continent's procurement layer</div>
+          <div class="exp-body">$1B+ in annual GMV. 50,000+ active food businesses. The price index governments and banks rely on. The supplier network that feeds Africa's cities. A data asset worth more than the marketplace itself.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 06 THE FUTURE -->
+  <div class="section">
+    <div class="section-num">06 — The Future</div>
+    <div class="section-title">Paint the picture.<br><em>This is what we're building.</em></div>
+
+    <div class="vision-dark">
+      <h3>In five years, <em>Kikiski is infrastructure.</em></h3>
+      <p>Every morning across Lagos, Accra, Nairobi, and Dakar, 50,000 food businesses wake up and open Kikiski before they open anything else. Not because they have to — because it runs their procurement better than they ever could manually.</p>
+      <p>Suppliers compete to be on Kikiski because it gives them access to thousands of buyers they could never reach alone. A pepper farmer collective in Kaduna sells directly to 500 Lagos restaurants without a single sales call. A beverage distributor in Accra wins hotel contracts because her reliability score is 4.9 stars across 1,200 deliveries.</p>
+      <p><strong>The data Kikiski accumulates becomes a national asset.</strong> Nigeria's Central Bank watches our weekly price index to monitor food inflation. The World Bank uses our supply chain data to model food security interventions. FMCG companies pay to understand what African food businesses actually buy — not what surveys say they buy, but what they order every week.</p>
+      <p><strong>Vendors come to us.</strong> We don't chase suppliers. They onboard themselves because being on Kikiski means being visible to every food business in their city. A new cold chain operator in PH lists on Kikiski because 300 restaurants are already sending quote requests there. A new organic produce farm from Plateau State joins because Kikiski is where Lagos chefs are looking.</p>
+      <p>And at the centre of all of it is a WhatsApp message. Simple. Fast. In any language. Working the same way for a suya spot in Yaba as it does for the Grand Hyatt in Lagos. <strong>That's the magic. Complexity invisible to the user. Intelligence doing the work.</strong></p>
+    </div>
+
+    <p>This is not a procurement tool. This is the transaction layer for African food commerce — and eventually all B2B commerce. The company that builds this owns a position in the African economy that compounds for decades.</p>
+
+    <div class="pq">
+      <p>We are not building an app. We are building the nervous system that connects African buyers to African suppliers — intelligently, reliably, at continental scale.</p>
+    </div>
+  </div>
+
+
+
+  <!-- CLOSING -->
+  <div class="closing">
+    <div class="closing-logo">kikiski<span>.ai</span></div>
+    <div class="closing-domain">kikiski.ai</div>
+    <div class="closing-line">"Your market, in your phone."</div>
+    <div class="closing-from">
+      With conviction — Luther Lawoyin<br>
+      Co-Founder & Chief Strategy Officer<br>
+      <br>
+      Pricepally Technologies · 2025
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
